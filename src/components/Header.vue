@@ -18,7 +18,7 @@
 
       <ul class="options">
         <li class="options__item">Login</li>
-        <li class="options__item">Sign up</li>
+        <li class="options__item options__item--signup">Sign up</li>
       </ul>
     </nav>
 
@@ -49,6 +49,11 @@
   align-items: center;
 }
 
+.header .header__logo {
+  display: grid;
+  place-items: center;
+}
+
 .header .header__nav {
   display: none;
 }
@@ -64,16 +69,61 @@
 
   .header .header__nav {
     width: 100%;
+
     display: flex;
     justify-content: space-between;
+
+    font-size: 15px;
+    color: #9e9aa8;
+    font-family: Poppins;
+    font-style: normal;
+    line-height: normal;
   }
 
   .header .header__nav .nav,
   .header .header__nav .options {
-    display: flex;
     list-style: none;
-    gap: 1rem;
-    align-items: center;
+
+    display: grid;
+    grid-template-rows: 1fr;
+    place-items: center;
+  }
+
+  .header .header__nav .nav {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .header .header__nav .nav .nav__item,
+  .header .header__nav .options .options__item {
+    font-weight: 700;
+  }
+
+  .header .header__nav .nav .nav__item:hover,
+  .header .header__nav .options .options__item:hover {
+    color: #34313d;
+    cursor: pointer;
+  }
+
+  .header .header__nav .options {
+    grid-template-columns: repeat(2, max-content);
+    column-gap: 1rem;
+  }
+
+  .header .header__nav .options {
+    grid-template-columns: repeat(2, max-content);
+    place-items: center;
+    column-gap: 1rem;
+  }
+
+  .options .options__item--signup {
+    background-color: #2bd0d0;
+    border-radius: 28px;
+    padding: 10px 20px;
+    color: #fff;
+  }
+
+  .options .options__item--signup:hover {
+    background-color: #9ae3e3;
+    color: #fff !important;
   }
 }
 </style>
