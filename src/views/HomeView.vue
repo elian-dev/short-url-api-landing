@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import Header from '@/components/Header.vue'
+import HeaderNav from '@/components/HeaderNav.vue'
 </script>
 
 <template>
-  <Header></Header>
+  <HeaderNav></HeaderNav>
 </template>

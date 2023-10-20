@@ -1,3 +1,9 @@
+<script setup>
+import { ref } from 'vue'
+
+const menuOpen = ref(false)
+</script>
+
 <template>
   <header class="header">
     <div class="header__logo">
@@ -22,7 +28,7 @@
       </ul>
     </nav>
 
-    <div class="header__menu">
+    <div class="header__menu" id="menu-button" @click="menuOpen = !menuOpen && true">
       <svg
         width="24"
         height="21"
@@ -35,6 +41,19 @@
         <rect y="18" width="24" height="3" fill="#9E9AA8" />
       </svg>
     </div>
+
+    <nav class="header__nav--mobile" id="menu" v-if="menuOpen">
+      <ul class="nav">
+        <li class="nav__item">Features</li>
+        <li class="nav__item">Pricing</li>
+        <li class="nav__item">Resources</li>
+      </ul>
+      <div class="separator"></div>
+      <ul class="options">
+        <li class="options__item">Login</li>
+        <li class="options__item options__item--signup">Sign up</li>
+      </ul>
+    </nav>
   </header>
 </template>
 
@@ -47,6 +66,8 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
+  position: relative;
 }
 
 .header .header__logo {
@@ -125,5 +146,53 @@
     background-color: #9ae3e3;
     color: #fff !important;
   }
+}
+
+.header .header__nav--mobile {
+  display: grid;
+  position: absolute;
+  top: 50px;
+  width: 100%;
+  background-color: #3a3054;
+  color: #fff;
+  border-radius: 10px;
+
+  place-items: center;
+  padding-top: 1rem;
+  padding-bottom: 1.5rem;
+}
+
+.header .header__nav--mobile .nav,
+.header .header__nav--mobile .options {
+  width: 100%;
+  display: grid;
+  place-items: center;
+  list-style: none;
+  padding: 0;
+}
+
+.header .header__nav--mobile .nav .nav__item,
+.header .header__nav--mobile .options .options__item {
+  padding: 10px 0;
+  font-weight: 700;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.header .header__nav--mobile .options .options__item.options__item--signup {
+  width: 90%;
+  background-color: #2bd0d0;
+  border-radius: 28px;
+  padding: 10px 20px;
+  color: #fff;
+  text-align: center;
+}
+
+.header .header__nav--mobile .separator {
+  opacity: 0.25;
+  background-color: #9e9aa8;
+  width: 90%;
+  height: 2px;
+  margin: 1rem 0;
 }
 </style>
