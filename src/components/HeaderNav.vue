@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue'
+import Button from '@/components/Button.vue'
 
 const menuOpen = ref(false)
 </script>
@@ -24,7 +25,9 @@ const menuOpen = ref(false)
 
       <ul class="options">
         <li class="options__item">Login</li>
-        <li class="options__item options__item--signup">Sign up</li>
+        <li class="options__item">
+          <Button type="cta" variant="primary" href="/sign-up"> Sign up </Button>
+        </li>
       </ul>
     </nav>
 
@@ -51,7 +54,9 @@ const menuOpen = ref(false)
       <div class="separator"></div>
       <ul class="options">
         <li class="options__item">Login</li>
-        <li class="options__item options__item--signup">Sign up</li>
+        <li class="options__item options__item--signup">
+          <Button type="cta" variant="primary" href="/sign-up"> Sign Up </Button>
+        </li>
       </ul>
     </nav>
   </header>
@@ -134,18 +139,6 @@ const menuOpen = ref(false)
     place-items: center;
     column-gap: 1rem;
   }
-
-  .options .options__item--signup {
-    background-color: #2bd0d0;
-    border-radius: 28px;
-    padding: 10px 20px;
-    color: #fff;
-  }
-
-  .options .options__item--signup:hover {
-    background-color: #9ae3e3;
-    color: #fff !important;
-  }
 }
 
 .header .header__nav--mobile {
@@ -177,15 +170,6 @@ const menuOpen = ref(false)
   font-weight: 700;
   margin-top: 5px;
   margin-bottom: 5px;
-}
-
-.header .header__nav--mobile .options .options__item.options__item--signup {
-  width: 90%;
-  background-color: #2bd0d0;
-  border-radius: 28px;
-  padding: 10px 20px;
-  color: #fff;
-  text-align: center;
 }
 
 .header .header__nav--mobile .separator {

@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import HeaderNav from '@/components/HeaderNav.vue'
+import HeroSection from '@/components/HeroSection.vue'
 </script>
 
 <template>
-  <HeaderNav></HeaderNav>
+  <HeroSection></HeroSection>
 </template>
