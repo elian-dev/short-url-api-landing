@@ -29,6 +29,7 @@ const props = defineProps(['type', 'variant', 'link', 'target'])
   padding: 10px 20px;
   color: #fff;
   border: none;
+  text-decoration: none;
 }
 .button:hover {
   cursor: pointer;

@@ -64,8 +64,9 @@ const menuOpen = ref(false)
 
 <style scoped>
 .header {
-  width: 100%;
+  width: auto;
   max-width: 100%;
+  padding: 1rem 1.5rem;
 
   display: flex;
   flex-direction: row;
@@ -82,6 +83,10 @@ const menuOpen = ref(false)
 
 .header .header__nav {
   display: none;
+}
+
+.header .header__menu {
+  cursor: pointer;
 }
 
 @media screen and (min-width: 768px) {
@@ -144,8 +149,8 @@ const menuOpen = ref(false)
 .header .header__nav--mobile {
   display: grid;
   position: absolute;
-  top: 50px;
-  width: 100%;
+  top: 90px;
+  width: 90%;
   background-color: #3a3054;
   color: #fff;
   border-radius: 10px;
@@ -153,6 +158,9 @@ const menuOpen = ref(false)
   place-items: center;
   padding-top: 1rem;
   padding-bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
 }
 
 .header .header__nav--mobile .nav,
