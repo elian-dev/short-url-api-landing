@@ -6,7 +6,7 @@ const menuOpen = ref(false)
 </script>
 
 <template>
-  <header class="header">
+  <header class="container header">
     <div class="header__logo">
       <svg xmlns="http://www.w3.org/2000/svg" width="121" height="33">
         <path
@@ -66,7 +66,7 @@ const menuOpen = ref(false)
 .header {
   width: auto;
   max-width: 100%;
-  padding: 1rem 1.5rem;
+  padding: 3rem 1.5rem 1rem 1.5rem;
 
   display: flex;
   flex-direction: row;

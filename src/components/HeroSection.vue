@@ -2,7 +2,7 @@
 import Button from '@/components/Button.vue'
 </script>
 <template>
-  <section class="hero">
+  <section class="container hero">
     <div class="hero__img">
       <img class="" src="@/assets/images/illustration-working.svg" alt="" srcset="" />
     </div>
@@ -23,6 +23,8 @@ import Button from '@/components/Button.vue'
 
   display: grid;
   position: relative;
+  padding-top: 3rem;
+  padding-bottom: 10rem;
 }
 
 .hero .hero__img {
