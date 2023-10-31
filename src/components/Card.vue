@@ -1,0 +1,44 @@
+<script setup lang="ts">
+defineProps<{
+  img: string
+  imgAlt: string
+  title: string
+  text: string
+}>()
+</script>
+
+<template>
+  <article class="card">
+    <div class="card__thumb">
+      <img :src="img" :alt="imgAlt" srcset="" />
+    </div>
+
+    <h3>{{ title }}</h3>
+    <p>
+      {{ text }}
+    </p>
+  </article>
+</template>
+
+<style>
+.card {
+  background-color: #fff;
+  padding: 3rem 2rem;
+  position: relative;
+}
+
+.card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.card__thumb {
+  width: fit-content;
+  background-color: #3a3054;
+  padding: 0.9rem 1.2rem;
+  border-radius: 50%;
+  position: absolute;
+  transform: translateY(-50%);
+  top: 0;
+}
+</style>
