@@ -25,20 +25,37 @@ defineProps<{
   background-color: #fff;
   padding: 3rem 2rem;
   position: relative;
+  height: fit-content;
+  max-height: fit-content;
 }
 
 .card h3 {
   font-size: 1.1rem;
   font-weight: 700;
+  margin-top: 1rem;
 }
 
 .card__thumb {
   width: fit-content;
   background-color: #3a3054;
-  padding: 0.9rem 1.2rem;
+  padding: 1.3rem 1.3rem;
   border-radius: 50%;
   position: absolute;
   transform: translateY(-50%);
   top: 0;
+  display: flex;
+  align-items: center;
 }
+
+@media screen and (max-width: 900px) {
+  .card {
+    text-align: center;
+  }
+  .card__thumb {
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
 </style>
