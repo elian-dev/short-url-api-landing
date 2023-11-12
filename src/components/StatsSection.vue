@@ -43,6 +43,7 @@ import FullyIcon from '@/assets/images/icon-fully-customizable.svg'
 .stats {
   background-color: #eff1f7;
   padding-top: 10rem;
+  padding-bottom: 3rem;
 }
 
 .stats .content {
