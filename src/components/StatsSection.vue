@@ -47,8 +47,9 @@ import FullyIcon from '@/assets/images/icon-fully-customizable.svg'
 }
 
 .stats .content {
-  width: 90%;
   padding-bottom: 2rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
 .stats .content .title {

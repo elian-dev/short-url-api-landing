@@ -2,6 +2,7 @@
 import HeroSection from '@/components/HeroSection.vue'
 import ShorterForm from '@/components/ShorterForm.vue'
 import StatsSection from '@/components/StatsSection.vue'
+import Footer from '@/components/Footer.vue';
 import CTA from '@/components/CTA.vue';
 </script>
 
@@ -10,4 +11,5 @@ import CTA from '@/components/CTA.vue';
   <ShorterForm></ShorterForm>
   <StatsSection></StatsSection>
   <CTA></CTA>
+  <Footer></Footer>
 </template>

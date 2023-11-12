@@ -15,11 +15,15 @@
 
 <style>
 .shorter {
+  display: block;
+  box-sizing: border-box;
   position: relative;
+  padding: 0 1.5rem;
 }
 .shorter-form {
-  display: flex;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 1rem;
 
   background-color: #3a3054;
   background-image: url(../assets/images/bg-shorten-desktop.svg);
@@ -27,9 +31,9 @@
   background-size: cover;
   background-position: top right;
   padding: 3rem 4rem;
-  width: 90%;
   border-radius: 10px;
 
+  width: 97%;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -60,9 +64,11 @@
 @media screen and (max-width: 768px) {
   .shorter-form {
     background-image: url(../assets/images/bg-shorten-mobile.svg);
-    flex-direction: column;
     background-size: contain;
-    padding: 2rem;
+    width: 90%;
+    grid-template-columns: 1fr;
+    row-gap: 1rem;
+    padding: 1rem;
   }
 }
 </style>
