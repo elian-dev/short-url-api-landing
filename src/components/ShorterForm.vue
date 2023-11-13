@@ -1,15 +1,47 @@
+<script setup>
+  import { ref } from "vue";
+  const url = ref("");
+
+  const getCleanUri = async (longUrl) => {
+    console.log(longUrl)
+    const baseUrl = 'https://cleanuri.com/api/v1/shorten';
+
+    var formdata = new FormData();
+    formdata.append("url", longUrl);
+
+    var requestOptions = {
+      method: 'POST',
+      body: formdata,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Accept': '*/*'
+      },
+      redirect: 'follow'
+    };
+
+    await fetch(baseUrl, requestOptions)
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .then(error => console.log(error))
+    
+  }
+</script>
 <template>
   <section class="shorter">
-    <form class="container shorter-form" @submit.prevent>
+    <form class="container shorter-form" @submit.prevent="getCleanUri(url)">
       <input
         class="shorter-form--input"
         type="text"
         name="url"
         id="url"
         placeholder="Shorten a link here..."
+        v-model="url"
       />
       <input class="button vprimary shorter-form--submit" type="submit" value="Shorten It!" />
     </form>
+    <div>
+      {{ url }}
+    </div>
   </section>
 </template>
 
