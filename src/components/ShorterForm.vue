@@ -1,38 +1,68 @@
 <script setup>
   import { ref } from "vue";
   const url = ref("");
+  const isError = ref('');
 
   const getCleanUri = async () => {
-    var data = { url: url.value };
 
-    let requestOptions = {
-      method: 'POST',
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    };
+    const validUrl = isValidUrl()
 
-    console.log(requestOptions)
+    if (url.value === '') {
+      isError.value = 'Please add a link'
+    } else if (!validUrl) {
+      isError.value = 'Type a valid url, eg: https://google.com/'
+    } else {
+      const data = { url: url.value };
 
-    const response = await fetch('https://cleanuri.com/api/v1/shorten', requestOptions)
+      let requestOptions = {
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      };
 
-    const result = await response.json()
-    console.log(result)    
+      const response = await fetch('http://localhost:3001/clean-uri', requestOptions)
+
+      const result = await response.json()
+      console.log(result)
+    }
   }
+
+  const validateError = () => {
+    if(url.value !== '') {
+      isError.value = ''
+    } else {
+      isError.value = 'Please add a link'
+    }
+  }
+
+  const isValidUrl = () => {
+    try {
+      const newUrl = new URL(url.value)
+      return newUrl.protocol === 'http:' || newUrl.protocol === 'https:';
+    } catch (err) {
+      return false
+    }
+  } 
 </script>
 <template>
   <section class="shorter">
     <form class="container shorter-form" @submit.prevent="getCleanUri" autocomplete='on'>
       <input
         class="shorter-form--input"
+        :class="{error: isError}"
+        @change="validateError()"
+        @input="validateError()"
         type="text"
         name="url"
         id="url"
         placeholder="Shorten a link here..."
         v-model="url"
+        autocomplete="url"
       />
       <input class="button vprimary shorter-form--submit" type="submit" value="Shorten It!" />
+      <p v-if="isError" class="error-msg">{{ isError }}</p>
     </form>
   </section>
 </template>
@@ -83,6 +113,19 @@
   color: #fff;
   font-size: 1.1rem;
   font-weight: 700;
+}
+
+.shorter-form--input.error {
+  border: 3px solid #F46363;
+  outline: none;
+}
+.shorter-form--input.error::placeholder {
+  color: #F46363;
+}
+
+.error-msg {
+  color: #F46363;
+  font-style: italic;
 }
 
 @media screen and (max-width: 768px) {
