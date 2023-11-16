@@ -2,33 +2,28 @@
   import { ref } from "vue";
   const url = ref("");
 
-  const getCleanUri = async (longUrl) => {
-    console.log(longUrl)
-    const baseUrl = 'https://cleanuri.com/api/v1/shorten';
+  const getCleanUri = async () => {
+    var data = { url: url.value };
 
-    var formdata = new FormData();
-    formdata.append("url", longUrl);
-
-    var requestOptions = {
+    let requestOptions = {
       method: 'POST',
-      body: formdata,
       headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Accept': '*/*'
+        "Content-Type": "application/json",
       },
-      redirect: 'follow'
+      body: JSON.stringify(data),
     };
 
-    await fetch(baseUrl, requestOptions)
-      .then(response => response.json())
-      .then(data => console.log(data))
-      .then(error => console.log(error))
-    
+    console.log(requestOptions)
+
+    const response = await fetch('https://cleanuri.com/api/v1/shorten', requestOptions)
+
+    const result = await response.json()
+    console.log(result)    
   }
 </script>
 <template>
   <section class="shorter">
-    <form class="container shorter-form" @submit.prevent="getCleanUri(url)">
+    <form class="container shorter-form" @submit.prevent="getCleanUri" autocomplete='on'>
       <input
         class="shorter-form--input"
         type="text"
@@ -39,9 +34,6 @@
       />
       <input class="button vprimary shorter-form--submit" type="submit" value="Shorten It!" />
     </form>
-    <div>
-      {{ url }}
-    </div>
   </section>
 </template>
 
