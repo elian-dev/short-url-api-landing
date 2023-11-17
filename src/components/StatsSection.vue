@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Card from '@/components/Card.vue'
+import Card from '@/components/StatCard.vue'
 import BrandIcon from '@/assets/images/icon-brand-recognition.svg'
 import DetailedIcon from '@/assets/images/icon-detailed-records.svg'
 import FullyIcon from '@/assets/images/icon-fully-customizable.svg'

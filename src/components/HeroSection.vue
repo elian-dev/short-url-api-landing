@@ -1,5 +1,5 @@
-<script setup>
-import Button from '@/components/Button.vue'
+<script setup lang="ts">
+import Button from '@/components/ButtonVariants.vue'
 </script>
 <template>
   <section class="container hero">

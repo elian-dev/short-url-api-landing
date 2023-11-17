@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
     import FBIcon from '@/assets/images/icon-facebook.svg?raw'
     import TWIcon from '@/assets/images/icon-twitter.svg?raw'
     import PTIcon from '@/assets/images/icon-pinterest.svg?raw'

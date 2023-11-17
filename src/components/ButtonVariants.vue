@@ -1,5 +1,5 @@
-<script setup>
-const props = defineProps(['type', 'variant', 'link', 'target'])
+<script setup lang="ts">
+defineProps(['type', 'variant', 'link', 'target'])
 </script>
 
 <template>
