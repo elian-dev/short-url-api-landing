@@ -1,18 +1,26 @@
 <script setup lang="ts">
     import Button from '@/components/ButtonVariants.vue'
 
-    defineProps<{
-        url: string
+    interface UriObject {
+        newUrl: string;
+        oldUrl: string;
+        createdAt: Date;
+    }
+
+    const props = defineProps<{
+        uris: UriObject[]
     }>()
+
+    console.log(props.uris)
 </script>
 <template>
     <section class="results">
         <ul class="container results-list">
-            <li class="item">
-                <p class="old-url">https://www.frontendmentor.io</p>
+            <li class="item" v-for="(uri, index) in uris" :key="index">
+                <p class="old-url">{{ uri.oldUrl }}</p>
 
                 <div class="new-url">
-                    <span><b>https://rel.ink/k4lKyk</b></span>
+                    <span><b>{{ uri.newUrl }}</b></span>
                     <Button type="button" variant="primary"> Copy </Button>
                 </div>
             </li>

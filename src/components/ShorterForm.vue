@@ -3,6 +3,8 @@
   const url = ref("");
   const isError = ref('');
 
+  const emit = defineEmits(["store"]);
+
   const getCleanUri = async () => {
 
     const validUrl = isValidUrl()
@@ -24,8 +26,12 @@
 
       const response = await fetch('http://localhost:3001/clean-uri', requestOptions)
 
-      const result = await response.json()
-      console.log(result)
+      if(response.ok) {
+        const result = await response.json()
+        emit("store", url.value, result)
+        url.value = ''
+      }
+      
     }
   }
 
