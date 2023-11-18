@@ -11,6 +11,21 @@
         uris: UriObject[]
     }>()
 
+    const copyUrl = (url: string) => {
+        navigator.clipboard.writeText(url)
+
+        const buttonEvent = event as MouseEvent;
+        const copyBtn = buttonEvent.target as HTMLElement
+
+        copyBtn?.classList.add('copied')
+        copyBtn.innerHTML = "Copied!"
+
+        setTimeout(() => {
+            copyBtn?.classList.remove('copied')
+            copyBtn.innerHTML = 'Copy'
+        }, 2000)
+    }
+
     console.log(props.uris)
 </script>
 <template>
@@ -21,7 +36,7 @@
 
                 <div class="new-url">
                     <span><b>{{ uri.newUrl }}</b></span>
-                    <Button type="button" variant="primary"> Copy </Button>
+                    <Button id="copy-url" type="button" variant="primary" @click="copyUrl(uri.newUrl)"> Copy </Button>
                 </div>
             </li>
         </ul>
@@ -75,6 +90,14 @@
     font-size: 1rem;
     width: 100%;
     margin-top: 1rem;
+}
+
+#copy-url {
+    width: 125px;
+}
+
+#copy-url.copied {
+    background-color: #3A3054;
 }
 
 @media screen and (min-width: 768px) {
