@@ -67,7 +67,7 @@
         v-model="url"
         autocomplete="url"
       />
-      <input class="button vprimary shorter-form--submit" type="submit" value="Shorten It!" />
+      <input class="button primary shorter-form--submit" type="submit" value="Shorten It!" />
       <p v-if="isError" class="error-msg">{{ isError }}</p>
     </form>
   </section>

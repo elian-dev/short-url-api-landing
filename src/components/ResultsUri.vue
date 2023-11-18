@@ -81,6 +81,7 @@
     .item .new-url {
         grid-template-columns: 1fr auto;
         font-size: 1.2rem;
+        border: none;
     }
 
     .item .new-url button {
