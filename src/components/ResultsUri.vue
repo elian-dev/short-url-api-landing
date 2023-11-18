@@ -1,15 +1,19 @@
 <script setup lang="ts">
     import Button from '@/components/ButtonVariants.vue'
+    import trashIcon from '@/assets/images/trash-icon.svg?raw'
 
     interface UriObject {
         newUrl: string;
         oldUrl: string;
+        favicon: string;
         createdAt: Date;
     }
 
-    const props = defineProps<{
+    defineProps<{
         uris: UriObject[]
     }>()
+
+    const emit = defineEmits(['remove'])
 
     const copyUrl = (url: string) => {
         navigator.clipboard.writeText(url)
@@ -26,17 +30,33 @@
         }, 2000)
     }
 
-    console.log(props.uris)
+    const removeUrl = (url: any) => {
+        const confirm = window.confirm(
+            "Are you sure to delete this url? \nThis action can be reverted"
+        )
+
+        if (confirm) {
+            emit("remove", url);
+        } else {
+            return;
+        }
+    }
 </script>
 <template>
     <section class="results">
         <ul class="container results-list">
             <li class="item" v-for="(uri, index) in uris" :key="index">
-                <p class="old-url">{{ uri.oldUrl }}</p>
+                <p class="old-url">
+                    <img :src="uri.favicon" :alt="uri.oldUrl">
+                    {{ uri.oldUrl }}
+                </p>
 
                 <div class="new-url">
                     <span><b>{{ uri.newUrl }}</b></span>
                     <Button id="copy-url" type="button" variant="primary" @click="copyUrl(uri.newUrl)"> Copy </Button>
+
+                    <button id="remove-btn" type="button" @click="removeUrl(uri)" v-html="trashIcon"></button>
+
                 </div>
             </li>
         </ul>
@@ -64,24 +84,43 @@
     display: grid;
     max-width: 100%;
     border-radius: 5px;
+    padding: 1rem;
 }
 
 .item .old-url {
-    padding: 1rem;
-
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 1rem;
+    align-items: center;
     font-size: 1rem;
     letter-spacing: 0.15px;
     font-weight: 500;
     color: #34313D;
+    word-break: break-all;
+    padding-bottom: 1rem;
+    width: 95%;
+}
+
+.item .old-url img {
+    width: 28px;
 }
 
 .item .new-url {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 1fr 1fr;
+    column-gap: 1rem;
     align-items: center;
     color: #2BD0D0;
     border-top: 1px solid #eff1f7;
-    padding: 1rem;
+    word-break: break-all;
+    font-size: 1.3rem;
+    padding: 1rem 0;
+}
+
+.item .new-url span {
+    grid-column-start: 1;
+    grid-column-end: 3;
 }
 
 .item .new-url button {
@@ -92,21 +131,34 @@
     margin-top: 1rem;
 }
 
-#copy-url {
-    width: 125px;
-}
-
 #copy-url.copied {
     background-color: #3A3054;
 }
 
+#remove-btn {
+    padding: 0.2rem;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+#remove-btn:hover svg path {
+    fill: #F36262;
+}
+
+
 @media screen and (min-width: 768px) {
     .item .new-url {
-        grid-template-columns: 1fr auto;
+        grid-template-columns: 1fr auto auto;
+        grid-template-rows: 1fr;
         font-size: 1.2rem;
         border: none;
     }
 
+    .item .new-url span {
+        grid-column: 1/2;
+    }
+    
     .item .new-url button {
         margin-top: 0;
         padding: 0.8rem 2rem;
@@ -116,18 +168,26 @@
 }
 
 @media screen and (min-width: 1024px) {
-    .results-list .item {
-        grid-template-columns: 1fr auto;
+    .results-list .item {  
+        grid-template-columns: 1fr auto auto;
         align-items: center;
     }
 
+    #copy-url {
+        width: 140px;
+    }
+
     .item .old-url {
+        width: 80%;
+        max-width: 80%;
         font-size: 1.2rem;
+        padding: 0;
     }
 
     .item .new-url {
         column-gap: 1.5rem;
         font-size: 1.2rem;
+        padding: 0;
     }
 
 }

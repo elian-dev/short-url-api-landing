@@ -28,7 +28,8 @@
 
       if(response.ok) {
         const result = await response.json()
-        emit("store", url.value, result)
+        const faviconUrl = await getFaviconUrl(url.value)
+        emit("store", url.value, result, faviconUrl)
         url.value = ''
       }
       
@@ -50,7 +51,20 @@
     } catch (err) {
       return false
     }
-  } 
+  }
+
+  const getDomainUrl = (url: string) => {
+    var parsedUrl = new URL(url);
+    var domainWithProtocol = parsedUrl.protocol + "//" + parsedUrl.hostname;
+    return domainWithProtocol
+  }
+
+  const getFaviconUrl = async (domain: string) => {
+    const domainUrl = getDomainUrl(domain)
+    const faviconUrl = `https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${domainUrl}&size=32`
+    
+    return faviconUrl
+  }
 </script>
 <template>
   <section class="shorter">
