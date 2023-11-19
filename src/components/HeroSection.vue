@@ -12,7 +12,7 @@ import Button from '@/components/ButtonVariants.vue'
       <p class="hero__text">
         Build your brand’s recognition and get detailed insights on how your links are performing.
       </p>
-      <Button type="button" variant="primary"> Get started </Button>
+      <Button type="button" variant="primary">Get Started </Button>
     </article>
   </section>
 </template>

@@ -44,4 +44,8 @@ defineProps(['type', 'variant', 'link', 'target'])
 .button.primary:hover {
   background-color: #9ae3e3;
 }
+
+.button.secondary:hover {
+  background-color: #4B3F6B;
+}
 </style>

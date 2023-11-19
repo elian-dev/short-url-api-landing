@@ -26,7 +26,7 @@ const menuOpen = ref(false)
       <ul class="options">
         <li class="options__item">Login</li>
         <li class="options__item">
-          <Button type="cta" variant="primary" href="/sign-up"> Sign up </Button>
+          <Button type="cta" variant="primary" href="/sign-up"> Sign Up </Button>
         </li>
       </ul>
     </nav>

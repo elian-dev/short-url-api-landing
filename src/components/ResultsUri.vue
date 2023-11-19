@@ -1,6 +1,10 @@
 <script setup lang="ts">
     import Button from '@/components/ButtonVariants.vue'
     import trashIcon from '@/assets/images/trash-icon.svg?raw'
+    import { ref } from "vue";
+    
+    const emit = defineEmits(['remove', 'paginate'])
+    const stepQ = ref(0) 
 
     interface UriObject {
         newUrl: string;
@@ -9,12 +13,15 @@
         createdAt: Date;
     }
 
-    defineProps<{
-        uris: UriObject[]
+    // Props
+    const props = defineProps<{
+        uris: UriObject[],
+        pagination: Boolean,
+        paginatedBy: number,
+        step: number
     }>()
 
-    const emit = defineEmits(['remove'])
-
+    // Methods
     const copyUrl = (url: string) => {
         navigator.clipboard.writeText(url)
 
@@ -41,6 +48,14 @@
             return;
         }
     }
+
+    stepQ.value = props.step
+    const loadMore = () => {
+        console.log(props.paginatedBy)
+        stepQ.value = stepQ.value + props.paginatedBy
+        emit("paginate", stepQ.value);
+    }
+
 </script>
 <template>
     <section class="results">
@@ -56,11 +71,21 @@
                     <Button id="copy-url" type="button" variant="primary" @click="copyUrl(uri.newUrl)"> Copy </Button>
 
                     <button id="remove-btn" type="button" @click="removeUrl(uri)" v-html="trashIcon"></button>
-
                 </div>
             </li>
         </ul>
 
+        <div class="container view-more">
+            <Button 
+                v-show="pagination"
+                id="view-more" 
+                type="button" 
+                variant="secondary"
+                @click="loadMore"
+            >
+                View More
+            </Button>
+        </div>
     </section>
 </template>
 
@@ -144,6 +169,16 @@
 
 #remove-btn:hover svg path {
     fill: #F36262;
+}
+
+.view-more {
+    display: flex;
+    padding: 1rem 0;
+}
+#view-more {
+    margin: auto;
+    padding: 0.8rem 1.2rem;
+    border-radius: 5px;
 }
 
 

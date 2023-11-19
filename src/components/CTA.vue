@@ -5,7 +5,7 @@
     <section class="cta">
         <div class="container cta-content">
             <h3>Boost your links today</h3>
-            <Button type="button" variant="primary"> Get started </Button>
+            <Button type="button" variant="primary"> Get Started </Button>
         </div>
     </section>
 </template>
