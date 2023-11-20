@@ -2,6 +2,7 @@
   "name": "short-url-api-landing",
   "version": "0.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",
@@ -16,6 +17,8 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "express": "^4.18.2",
+    "node-fetch": "^3.3.2",
     "normalize.css": "^8.0.1",
     "pinia": "^2.1.6",
     "vue": "^3.3.4",

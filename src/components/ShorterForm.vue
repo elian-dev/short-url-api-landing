@@ -24,7 +24,7 @@
         body: JSON.stringify(data),
       };
 
-      const response = await fetch('https://intermediate-server-cleanuri-iruta3ti0-elian-dev.vercel.app/clean-uri', requestOptions)
+      const response = await fetch('https://short-url-api-landing.vercel.app/clean-uri', requestOptions)
 
       if(response.ok) {
         const result = await response.json()
