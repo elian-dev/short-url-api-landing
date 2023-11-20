@@ -60,7 +60,7 @@
 <template>
     <section class="results">
         <TransitionGroup class="container results-list" name="fade" tag="ul" >
-            <li class="item" v-for="uri in uris" :key="uri">
+            <li class="item" v-for="(uri, index) in uris" :key="index">
                 <p class="old-url">
                     <img :src="uri.favicon" :alt="uri.oldUrl">
                     {{ uri.oldUrl }}
