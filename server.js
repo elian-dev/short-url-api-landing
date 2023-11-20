@@ -14,6 +14,17 @@ server.use((req, res, next) => {
     next();
 });
 
+
+server.get('/', (req, res) => {
+  res.json(
+      { 
+          name: 'Sever to avoid cors of CleanURI', 
+          author: 'eliandev',
+          url: '/clean-uri',
+          method: 'POST'
+      })
+})
+
 server.get('/server', (req, res) => {
   const app = createSSRApp({
     data: () => ({ count: 1 }),
