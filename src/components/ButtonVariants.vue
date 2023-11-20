@@ -4,8 +4,8 @@ defineProps(['type', 'variant', 'link', 'target'])
 
 <template>
   <a
-    href="link"
-    target="target"
+    :href="link"
+    :target="target"
     class="button"
     :class="[{ primary: variant == 'primary' }, { secondary: variant == 'secondary' }]"
     v-if="type == 'cta'"

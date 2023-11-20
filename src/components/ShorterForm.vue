@@ -67,7 +67,7 @@
   }
 </script>
 <template>
-  <section class="shorter">
+  <section class="shorter" id="shorten-it">
     <form class="container shorter-form" @submit.prevent="getCleanUri" autocomplete='on'>
       <input
         class="shorter-form--input"
@@ -82,17 +82,30 @@
         autocomplete="url"
       />
       <input class="button primary shorter-form--submit" type="submit" value="Shorten It!" />
-      <p v-if="isError" class="error-msg">{{ isError }}</p>
+      <Transition>
+        <p v-if="isError" class="error-msg">{{ isError }}</p>
+      </Transition>
     </form>
   </section>
 </template>
 
 <style>
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
+
 .shorter {
   display: block;
   box-sizing: border-box;
   position: relative;
   padding: 0 1.5rem;
+  scroll-margin: 5rem;
 }
 .shorter-form {
   display: grid;

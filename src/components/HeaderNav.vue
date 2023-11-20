@@ -45,20 +45,22 @@ const menuOpen = ref(false)
       </svg>
     </div>
 
-    <nav class="header__nav--mobile" id="menu" v-if="menuOpen">
-      <ul class="nav">
-        <li class="nav__item">Features</li>
-        <li class="nav__item">Pricing</li>
-        <li class="nav__item">Resources</li>
-      </ul>
-      <div class="separator"></div>
-      <ul class="options">
-        <li class="options__item">Login</li>
-        <li class="options__item options__item--signup">
-          <Button type="cta" variant="primary" href="/sign-up"> Sign Up </Button>
-        </li>
-      </ul>
-    </nav>
+    <Transition name="fade">
+      <nav class="header__nav--mobile" id="menu" v-if="menuOpen">
+        <ul class="nav">
+          <li class="nav__item">Features</li>
+          <li class="nav__item">Pricing</li>
+          <li class="nav__item">Resources</li>
+        </ul>
+        <div class="separator"></div>
+        <ul class="options">
+          <li class="options__item">Login</li>
+          <li class="options__item options__item--signup">
+            <Button type="cta" variant="primary" href="/"> Sign Up </Button>
+          </li>
+        </ul>
+      </nav>
+    </Transition>
   </header>
 </template>
 

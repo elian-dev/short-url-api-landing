@@ -4,11 +4,12 @@ defineProps<{
   imgAlt: string
   title: string
   text: string
+  className?: string
 }>()
 </script>
 
 <template>
-  <article class="card">
+  <article class="card" :class="className">
     <div class="card__thumb">
       <img :src="img" :alt="imgAlt" srcset="" />
     </div>

@@ -3,9 +3,9 @@
 </script>
 <template>
     <section class="cta">
-        <div class="container cta-content">
+        <div class="container cta-content animate">
             <h3>Boost your links today</h3>
-            <Button type="button" variant="primary"> Get Started </Button>
+            <Button type="cta" link="#shorten-it" variant="primary"> Get Started </Button>
         </div>
     </section>
 </template>
@@ -33,7 +33,7 @@
         text-align: center;
     }
 
-    .cta-content button {
+    .cta-content a {
         padding: 1rem 2rem;
         font-size: 1.2rem;
     }

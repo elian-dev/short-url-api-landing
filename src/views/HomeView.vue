@@ -45,13 +45,53 @@ watch(
     localStorage.setItem("uris", JSON.stringify(newVal));
   },
   { deep: true }
-);
+)
+
+const animation = () => {
+  const sections = document.querySelectorAll('.animate')
+  const sectionsGroup = document.querySelectorAll('.animate-group')
+
+  const options = {
+    root: null,
+    threshold: 0.2,
+    rootMargin: '0px'
+  }
+
+  // Animate a section or an element
+  const observer = new IntersectionObserver(function (entries, observer) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible')
+        observer.unobserve(entry.target)
+      }
+    })
+  }, options)
+
+  sections.forEach((section) => {
+    observer.observe(section)
+  })
+
+  // Animations in group
+  const observerGroup = new IntersectionObserver(function (entries, observer) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible')
+        observer.unobserve(entry.target)
+      }
+    })
+  }, options)
+
+  sectionsGroup.forEach((section) => {
+    observerGroup.observe(section)
+  })
+}
 
 onMounted(() => {
   const storedUris = JSON.parse(localStorage.getItem("uris") || "[]") as UriObject[]
   uris.value = storedUris.sort((a: any, b: any) => b.createdAt - a.createdAt)
   pagination.value = uris_asc.value.length > paginatedBy.value ? true : false
   pages.value = Math.ceil(uris_asc.value.length / paginatedBy.value)
+  animation()
 })
 
 const addUri = (url: string, cleanUri: any, icon: string) => {

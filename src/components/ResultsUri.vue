@@ -59,8 +59,8 @@
 </script>
 <template>
     <section class="results">
-        <ul class="container results-list">
-            <li class="item" v-for="(uri, index) in uris" :key="index">
+        <TransitionGroup class="container results-list" name="fade" tag="ul" >
+            <li class="item" v-for="uri in uris" :key="uri">
                 <p class="old-url">
                     <img :src="uri.favicon" :alt="uri.oldUrl">
                     {{ uri.oldUrl }}
@@ -73,7 +73,7 @@
                     <button id="remove-btn" type="button" @click="removeUrl(uri)" v-html="trashIcon"></button>
                 </div>
             </li>
-        </ul>
+        </TransitionGroup>
 
         <div class="container view-more">
             <Button 
@@ -101,6 +101,7 @@
     display: grid;
     row-gap: 1.5rem;
     width: 90%;
+    position: relative;
 }
 
 .results-list .item {
@@ -110,6 +111,7 @@
     max-width: 100%;
     border-radius: 5px;
     padding: 1rem;
+    box-sizing: border-box;
 }
 
 .item .old-url {
@@ -225,5 +227,25 @@
         padding: 0;
     }
 
+}
+
+/* 1. declare transition */
+.fade-move,
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+}
+
+/* 2. declare enter from and leave to state */
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+  transform: scaleY(0.01) translate(30px, 0);
+}
+
+/* 3. ensure leaving items are taken out of layout flow so that moving
+      animations can be calculated correctly. */
+.fade-leave-active {
+  position: absolute;
 }
 </style>

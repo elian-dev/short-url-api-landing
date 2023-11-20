@@ -2,19 +2,21 @@
 import Button from '@/components/ButtonVariants.vue'
 </script>
 <template>
-  <section class="container hero">
-    <div class="hero__img">
-      <img class="" src="@/assets/images/illustration-working.svg" alt="" srcset="" />
-    </div>
+  <Transition name="fade">
+    <section class="container hero">
+      <div class="hero__img">
+        <img class="" src="@/assets/images/illustration-working.svg" alt="" srcset="" />
+      </div>
 
-    <article class="hero__content">
-      <h1 class="hero__title">More than just shorter links</h1>
-      <p class="hero__text">
-        Build your brand’s recognition and get detailed insights on how your links are performing.
-      </p>
-      <Button type="button" variant="primary">Get Started </Button>
-    </article>
-  </section>
+      <article class="hero__content">
+        <h1 class="hero__title">More than just shorter links</h1>
+        <p class="hero__text">
+          Build your brand’s recognition and get detailed insights on how your links are performing.
+        </p>
+        <Button type="cta" target="" variant="primary" link="#shorten-it">Get Started </Button>
+      </article>
+    </section>
+  </Transition>
 </template>
 
 <style>
@@ -41,12 +43,14 @@ import Button from '@/components/ButtonVariants.vue'
   font-weight: 700;
   text-align: center;
   line-height: 48px;
+  animation: display-faded 1s ease-in-out;
 }
 
 .hero .hero__text {
   font-size: 18px;
   text-align: center;
   color: #9e9aa8;
+  animation: display-faded 1.5s ease-in-out;
 }
 
 .hero .hero__content {
@@ -67,6 +71,7 @@ import Button from '@/components/ButtonVariants.vue'
   margin-bottom: 1rem;
   padding-top: 15px;
   padding-bottom: 15px;
+  animation: display-faded 1.5s ease-in-out;
 }
 
 @media screen and (min-width: 768px) {

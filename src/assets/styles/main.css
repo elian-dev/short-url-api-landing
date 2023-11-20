@@ -27,3 +27,93 @@ html {
   max-width: 1440px !important;
   margin: 0 auto;
 }
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.animate.is-visible {
+  animation: display-faded 1s ease-in-out
+}
+
+.animate-group .first,
+.animate-group .second,
+.animate-group .third{
+    opacity: 0;
+}
+
+.animate-group .first-bar,
+.animate-group .second-bar {
+  width: 0;
+}
+
+
+.animate-group.is-visible .first {
+  animation: display-faded 1s ease-in-out forwards;
+}
+
+.animate-group.is-visible .first-bar {
+  animation: display-progress-bar 0.5s ease-in-out forwards;
+}
+
+.animate-group.is-visible .second {
+  animation: display-faded 1s ease-in-out 0.5s forwards;
+}
+
+.animate-group.is-visible .second-bar {
+  animation: display-progress-bar 0.5s ease-in-out 1s forwards;
+}
+
+.animate-group.is-visible .third {
+  animation: display-faded 1s ease-in-out 1s forwards;
+}
+
+
+@media screen and (max-width: 900px) {
+  .animate-group .first-bar,
+  .animate-group .second-bar {
+    width: 8px;
+  }
+  
+  .animate-group.is-visible .first-bar {
+    animation: display-progress-bar-mobile 0.5s ease-in-out forwards;
+  }
+  
+  
+  .animate-group.is-visible .second-bar {
+    animation: display-progress-bar-mobile 0.5s ease-in-out 1s forwards;
+  }
+}
+
+@keyframes display-faded {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes display-progress-bar {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes display-progress-bar-mobile {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 5rem;
+  }
+}

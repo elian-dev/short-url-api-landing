@@ -3,36 +3,40 @@ import Card from '@/components/StatCard.vue'
 import BrandIcon from '@/assets/images/icon-brand-recognition.svg'
 import DetailedIcon from '@/assets/images/icon-detailed-records.svg'
 import FullyIcon from '@/assets/images/icon-fully-customizable.svg'
+
 </script>
 <template>
   <section class="stats">
     <div class="container content">
-      <h2 class="title">Advanced Statistics</h2>
-      <p class="text">
+      <h2 class="title animate">Advanced Statistics</h2>
+      <p class="text animate">
         Track how your links are performing across the web with our <br />
         advanced statistics dashboard.
       </p>
 
-      <section class="stats-card">
+      <section class="stats-card animate-group">
         <Card
           :img="BrandIcon"
           img-alt="Brand recognition"
           title="Brand Recognition"
           text="Boost your brand recognition with each click. Generic links don’t mean a thing. Branded links help instil confidence in your content."
+          class-name="first"
         />
-        <div class="stats-separator"></div>
+        <div class="stats-separator first-bar"></div>
         <Card
           :img="DetailedIcon"
           img-alt="Detailed Records"
           title="Detailed Records"
           text="Gain insights into who is clicking your links. Knowing when and where people engage with your content helps inform better decisions."
+          class-name="second"
         />
-        <div class="stats-separator"></div>
+        <div class="stats-separator second-bar"></div>
         <Card
           :img="FullyIcon"
           img-alt="Fully Customizable"
           title="Fully Customizable"
           text="Improve brand awareness and content discoverability through customizable links, supercharging audience engagement."
+          class-name="third"
         />
       </section>
     </div>
@@ -42,7 +46,7 @@ import FullyIcon from '@/assets/images/icon-fully-customizable.svg'
 <style>
 .stats {
   background-color: #eff1f7;
-  padding-top: 10rem;
+  padding-top: 5rem;
   padding-bottom: 3rem;
 }
 
@@ -75,9 +79,13 @@ import FullyIcon from '@/assets/images/icon-fully-customizable.svg'
 /* Grid for stats cards */
 .stats-card {
   display: grid;
-  justify-items: center;
   margin-top: 6rem;
   margin-bottom: 6rem;
+}
+@media screen and (max-width: 900px) {
+  .stats-card {
+    justify-items: center;
+  }
 }
 
 .stats-separator {
