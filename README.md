@@ -1,68 +1,70 @@
-# short-url-api-landing
+# Frontend Mentor - Shortly URL shortening API Challenge solution
 
-This template should help get you started developing with Vue 3 in Vite.
+This is a solution to the [Shortly URL shortening API Challenge challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/url-shortening-api-landing-page-2ce3ob-G). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-## Recommended IDE Setup
+## Table of contents
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
 
-## Type Support for `.vue` Imports in TS
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+## Overview
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+### The challenge
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+Users should be able to:
 
-## Customize configuration
+- View the optimal layout for the site depending on their device's screen size
+- Shorten any valid URL
+- See a list of their shortened links, even after refreshing the browser
+- Copy the shortened link to their clipboard in a single click
+- Receive an error message when the `form` is submitted if:
+  - The `input` field is empty
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+### Screenshot
 
-## Project Setup
+![](./public/desktop.png)
 
-```sh
-npm install
-```
+### Links
 
-### Compile and Hot-Reload for Development
+- Solution URL: [Add solution URL here](https://github.com/elian-dev/short-url-api-landing)
+- Live Site URL: [Add live site URL here](https://shortly-urls.vercel.app/)
 
-```sh
-npm run dev
-```
+## My process
 
-### Type-Check, Compile and Minify for Production
+### Built with
 
-```sh
-npm run build
-```
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- CSS Grid
+- Mobile-first workflow
+- [Vue JS](https://reactjs.org/) - Frontend library
+- [Node.js / Express.js](https://nextjs.org/) - Backend library
 
-### Run Headed Component Tests with [Cypress Component Testing](https://on.cypress.io/component)
+### What I learned
 
-```sh
-npm run test:unit:dev # or `npm run test:unit` for headless testing
-```
+I learned about Vue.js composition API with Typescript, fundamentals and  and how to use transitions in Vue.js
 
-### Run End-to-End Tests with [Cypress](https://www.cypress.io/)
+I learned about Server-Side Rendering (SSR) in Vue.js in order to do tests locally.
 
-```sh
-npm run test:e2e:dev
-```
+And also, I created a intermediate server using Node.js and Express to do requests to the cleanuri.com API in order to avoid some CORS issues.
 
-This runs the end-to-end tests against the Vite development server.
-It is much faster than the production build.
+[Repo of the server](https://github.com/elian-dev/intermediate-server-cleanuri)
 
-But it's still recommended to test the production build with `test:e2e` before deploying (e.g. in CI environments):
+### Useful resources
 
-```sh
-npm run build
-npm run test:e2e
-```
+- [Clean Uri](https://cleanuri.com/docs) - CleanUri API oficial documentation
 
-### Lint with [ESLint](https://eslint.org/)
+## Author
 
-```sh
-npm run lint
-```
+- Website - [elian-dev](https://github.com/elian-dev)
+- Frontend Mentor - [@elian-dev](https://www.frontendmentor.io/profile/elian-dev)
+- Linkedin - [@eliandev](https://www.linkedin.com/in/eliandev/)
