@@ -128,6 +128,7 @@
 }
 
 .shorter-form--input {
+  width: 100%;
   padding: 1rem;
   border-radius: 10px;
   flex: 1;
