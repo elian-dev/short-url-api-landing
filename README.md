@@ -46,16 +46,16 @@ Users should be able to:
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
-- [Vue JS](https://reactjs.org/) - Frontend library
-- [Node.js / Express.js](https://nextjs.org/) - Backend library
+- [VueJS](https://vuejs.org/guide/introduction.html) - Frontend library
+- [Node.js / Express.js](https://expressjs.com/) - Backend library
 
 ### What I learned
 
-I learned about Vue.js composition API with Typescript, fundamentals and  and how to use transitions in Vue.js
+I learned about Vue.js composition API with Typescript, fundamentals, and how to use transitions in Vue.js
 
 I learned about Server-Side Rendering (SSR) in Vue.js in order to do tests locally.
 
-And also, I created a intermediate server using Node.js and Express to do requests to the cleanuri.com API in order to avoid some CORS issues.
+Also, I created an intermediate server using Node.js and Express to make requests to the cleanuri.com API in order to avoid some CORS issues.
 
 [Repo of the server](https://github.com/elian-dev/intermediate-server-cleanuri)
 
